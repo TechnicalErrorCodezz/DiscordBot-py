@@ -1,3 +1,4 @@
+import keep_alive
 import discord
 import datetime
 import os
@@ -101,5 +102,5 @@ async def ban_error(ctx, error):
                      
                      
 
-
+keep_alive.keep_alive()
 bot.run(BotToken)
