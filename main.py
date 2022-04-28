@@ -5,6 +5,7 @@ import os
 import math
 import time
 
+
 from discord.ext import commands
 from discord.ext.commands import Bot
 
@@ -43,8 +44,8 @@ async def help(ctx,  member: discord.Member = None):
 @bot.command() 
 async def modhelp(ctx):   
    e = discord.Embed(title = "Help", description = "This is the Help command for Moderation commands. The commands below check it", color=0xe74c3c)    
-   e.add_field(name= "", value = "")                    
-   e.add_field(name= "", value = "")                     
+   e.add_field(name= f"{BotPrefix}kick", value = "Kick a user from your server")                    
+   e.add_field(name= f"{BotPrefix}ban", value = "Ban a user from your server")                     
    e.add_field(name= "", value = "")                     
    await ctx.send(embed = e)                     
                         
@@ -55,9 +56,9 @@ async def gifhelp(ctx):
 @bot.command()                        
 async def uhelp(ctx):
    e = discord.Embed(title = "Help", description = "This is the Help command for Utitily commands. The commands below check it", color=0xe74c3c)
-   e.add_field(name= "Ping Command :ping_pong:", value = f"This commands shows your ping by valency. Use `{BotPrefix}ping` to check your ping.)                  
-   e.add_field(name= "", value = "")
-   e.add_field(name=
+   e.add_field(name= f"{BotPrefix}ping", value = f"This commands shows your ping by valency.)                  
+   e.add_field(name= f"{BotPrefix}invite", value = "By This command you can this invite this bot")
+   e.add_field(name= f"{BotPrefix}avatar", value = "Get your/Someone's Avatar")
    e.add_field(name=
    e.add_field(name=
    await ctx.send(embed = e)                         
@@ -99,6 +100,11 @@ async def ban(ctx, member: discord.Member, *, reason = None):
 async def ban_error(ctx, error):
   if isinstance(error, commands.MissingPermissions):
     await ctx.send("You dont have permission to kick the people ")                     
+ 
+                     
+                     
+                     
+                     
                      
                      
 
