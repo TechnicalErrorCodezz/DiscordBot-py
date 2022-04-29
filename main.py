@@ -236,6 +236,18 @@ async def serverinfo(ctx, member: discord.Member=None):
    await ctx.reply(embed = e)
 
 
+@bot.command()
+@commands.has_permission(manage_messages=True)
+async def mute(ctx, member: discord.Member, *, reason=None):
+   guild = ctx.guild
+   mutedRole = discord.utils.get(guild.roles, name="Muted")
+   if not mutedRole:
+      mutedRole = await guild.create_role(name"Muted")
+      for channel in guild.channels:
+         await channel.set_permission(muteRole, speak=False, send_messages=False, read_message_history=True, read_messages=True)
+   await member.add_roles(mutedRole, reason=reason)
+   await ctx.send(f"Muted {member.mention} for {reason} by {ctx.author.mention}")
+   await member.send(f"You were Muted from {guild.name} for {reason}")
 
 
 keep_alive.keep_alive()
