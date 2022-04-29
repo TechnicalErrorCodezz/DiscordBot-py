@@ -6,6 +6,13 @@ Device
 - Pc
 - Mobile
 
+Lang Used
+- English
+
+Programming Lang
+- Discord.py
+
+
 # Step By Step in PC/MOBILE
 ## Press that green Code and click download as .zip 
  steps
